@@ -9,7 +9,6 @@ function App() {
 
   return (
     <>
-      <h1>Trabalho jubs</h1>
       <SkinQuiz></SkinQuiz>
     </>
   )
