@@ -562,7 +562,7 @@ function App() {
               />
             </div>
 
-            <div className="question-area">
+            {/* <div className="question-area">
               <span className="question-number">
                 PERGUNTA {String(current + 1).padStart(2, "0")}
               </span>
@@ -598,7 +598,45 @@ function App() {
                   )
                 )}
               </div>
-            </div>
+            </div> */}
+
+            <div className="question-area" key={current}>
+  <span className="question-number">
+    PERGUNTA {String(current + 1).padStart(2, "0")}
+  </span>
+
+  <h3>{questions[current].title}</h3>
+
+  <p className="question-hint">
+    Selecione uma alternativa que mais combine com você.
+  </p>
+
+  <div className="options">
+    {questions[current].options.map((option, index) => (
+      <button
+        key={option}
+        type="button"
+        className={`option ${
+          selected === index ? "selected" : ""
+        }`}
+        onClick={() => handleSelect(index)}
+        aria-pressed={selected === index}
+      >
+        <span className="option-letter">
+          {String.fromCharCode(65 + index)}
+        </span>
+
+        <span className="option-text">
+          {option}
+        </span>
+
+        <span className="option-check">
+          {selected === index ? "✓" : ""}
+        </span>
+      </button>
+    ))}
+  </div>
+</div>
 
             <div className="quiz-footer">
               <button
